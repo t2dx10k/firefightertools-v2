@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/fft/")
+@RequestMapping("/api/fft")
 public class ToolController {
 
     private final ToolService service;

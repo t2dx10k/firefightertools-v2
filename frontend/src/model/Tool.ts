@@ -11,4 +11,5 @@ export type Tool = {
     choiceC:string
     correctChoice:string
     incorrectChoice:string
+    favourite:boolean
 }

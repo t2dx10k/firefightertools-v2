@@ -1,15 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {HashRouter, Route, Routes} from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import useTool from "./hooks/useTool";
+import ToolPage from "./pages/ToolPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
 
-      </header>
-    </div>
-  );
+    const {tool} = useTool();
+
+    return (
+        <div className="App">
+          <HashRouter>
+              <Routes>
+                  <Route path={"/"} element={<MainPage/>}/>
+                  <Route path={"/tools/"} element={<ToolPage tools={tool}/>}/>
+              </Routes>
+          </HashRouter>
+        </div>
+    );
 }
 
 export default App;

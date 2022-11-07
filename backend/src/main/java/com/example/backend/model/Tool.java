@@ -16,7 +16,7 @@ public class Tool {
     @Id
     private String _id;
     private String name;
-    private String img;
+    private String image;
     private String description;
     private String video;
     private String link;

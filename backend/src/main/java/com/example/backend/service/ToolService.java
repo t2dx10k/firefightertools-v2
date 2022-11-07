@@ -21,4 +21,9 @@ public class ToolService {
     public List<Tool> findAllTools(){
         return repo.findAll();
     }
+
+    public Tool addTool(Tool postTool){
+        postTool.set_id(idService.generateID());
+        return repo.save(postTool);
+    }
 }

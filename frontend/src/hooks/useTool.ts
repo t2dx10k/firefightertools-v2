@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {NewTool} from "../model/NewTool";
 
 export default function useTool() {
 
@@ -21,5 +22,13 @@ export default function useTool() {
             })
             .catch(() => console.error())
     }
-    return {tool}
+
+    const addNewTool = (tool:NewTool) => {
+        axios.post("/api/fft", tool)
+            .catch((error) => console.log(error))
+            .then(getAllTools)
+    }
+
+
+    return {tool, addNewTool}
 }

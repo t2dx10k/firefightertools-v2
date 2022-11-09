@@ -1,16 +1,25 @@
-import {useState} from "react";
-import {NewTool} from "../model/NewTool";
-import {useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
+import {Tool} from "../model/Tool";
 
-type APProps = {
-    addTool: (tool: NewTool) => void
+type EditPProps = {
+    tool:Tool|undefined
+    loadDetailedTool: (id:string) => void
 }
 
-export default function AddPage(props: APProps) {
+export default function EditPage(props: EditPProps) {
 
     const navigate = useNavigate();
 
-    const [name, setName] = useState("")
+    const id = useParams()
+
+    useEffect(() => {
+        if (id) {
+            //props.loadDetailedTool(id)
+        }
+    },[id])
+
+    const [name, setName] = useState(props.tool?.name)
     const [image, setImage] = useState("")
     const [description, setDescription] = useState("")
     const [video, setVideo] = useState("")
@@ -52,7 +61,7 @@ export default function AddPage(props: APProps) {
             favourite
         }
 
-        props.addTool(newTool)
+        //props.addTool(newTool)
         navigate("/tools")
     }
 
@@ -72,8 +81,8 @@ export default function AddPage(props: APProps) {
                     <input onChange={event => setChoiceC(event.target.value)} type={"text"} placeholder={"Choice C"}/>
                     <input onChange={event => setCorrectChoice(event.target.value)} type={"text"} placeholder={"Correct Choice"}/>
                     <input onChange={event => setIncorrectChoice(event.target.value)} type={"text"} placeholder={"Incorrect Choice"}/>
+                    <button onClick={() => onAddTool()}>Save</button>
                 </form>
-                <button onClick={() => onAddTool()}>Save</button>
             </div>
         </>
     )

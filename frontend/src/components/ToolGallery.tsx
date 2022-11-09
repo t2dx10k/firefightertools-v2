@@ -15,7 +15,6 @@ export default function ToolGallery(props: ToolGalleryProps) {
     return(
         <>
             <div className={"tools"}>
-                <h1 className={"title"}>FireFighterTools</h1>
                 <form className={"searchbar"}>
                     <input className={"search-input"} type={"text"} placeholder={"Search"} onChange={(event) => setSearch(event.target.value)}/>
                 </form>

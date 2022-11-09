@@ -12,11 +12,11 @@ export default function ToolCard(props: TCProps) {
     return (
         <div className={"toolcard"}>
             
-            <Link to={"/details"}>
+            <Link to={"/details/" + props.tool._id}>
                 <button><h6>{props.tool.name}</h6></button>
             </Link>
             <br/>
-            <Link to={"/details"}>
+            <Link to={"/details/" + props.tool._id}>
                 <button><h6>{props.tool.image}</h6></button>
             </Link>
             <h6>{props.tool.description}</h6>

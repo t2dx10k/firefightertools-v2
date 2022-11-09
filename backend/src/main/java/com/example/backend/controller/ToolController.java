@@ -23,8 +23,17 @@ public class ToolController {
         return service.findAllTools();
     }
 
+    @GetMapping("{id}")
+    public Tool getToolByID(@PathVariable String id) {
+        return service.getTool(id);
+    }
     @PostMapping
     public Tool postNewTool(@RequestBody Tool postTool){
         return service.addTool(postTool);
+    }
+
+    @PutMapping
+    public Tool updateATool(@RequestBody Tool updateTool){
+        return service.updateTool(updateTool);
     }
 }

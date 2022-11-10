@@ -2,24 +2,26 @@ import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {Tool} from "../model/Tool";
 
-type EditPProps = {
+type APProps = {
     tool:Tool|undefined
+    updateTool: (tool: Tool) => void
     loadDetailedTool: (id:string) => void
 }
 
-export default function EditPage(props: EditPProps) {
+export default function AddPage(props: APProps) {
 
     const navigate = useNavigate();
 
-    const id = useParams()
+    const {id} = useParams()
 
     useEffect(() => {
         if (id) {
-            //props.loadDetailedTool(id)
+            props.loadDetailedTool(id)
         }
     },[id])
 
-    const [name, setName] = useState(props.tool?.name)
+    const [_id, setId] = useState(props.tool?._id)
+    const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [description, setDescription] = useState("")
     const [video, setVideo] = useState("")
@@ -32,21 +34,10 @@ export default function EditPage(props: EditPProps) {
     const [incorrectChoice, setIncorrectChoice] = useState("")
     const [favourite, setfavourite] = useState(false)
 
-    const onAddTool = () => {
-        setName("")
-        setImage("")
-        setDescription("")
-        setVideo("")
-        setLink("")
-        setQuizQuestion("")
-        setChoiceA("")
-        setChoiceB("")
-        setChoiceC("")
-        setCorrectChoice("")
-        setIncorrectChoice("")
+    const updateTool = () => {
 
-
-        const newTool = {
+        const tool = {
+            _id,
             name,
             image,
             description,
@@ -61,15 +52,15 @@ export default function EditPage(props: EditPProps) {
             favourite
         }
 
-        //props.addTool(newTool)
+        props.updateTool(tool)
         navigate("/tools")
     }
 
     return (
         <>
             <div>
-                <button onClick={() => navigate(`/tools/`)}>FireFighterTools</button>
                 <form>
+                    <button onClick={() => navigate(`/tools/`)}>FireFighterTools</button>
                     <input onChange={event => setName(event.target.value)} value={name} type={"text"} placeholder={"Name"}/>
                     <input onChange={event => setImage(event.target.value)} type={"text"} placeholder={"Image"}/>
                     <input onChange={event => setDescription(event.target.value)} type={"text"} placeholder={"Description"}/>
@@ -81,7 +72,8 @@ export default function EditPage(props: EditPProps) {
                     <input onChange={event => setChoiceC(event.target.value)} type={"text"} placeholder={"Choice C"}/>
                     <input onChange={event => setCorrectChoice(event.target.value)} type={"text"} placeholder={"Correct Choice"}/>
                     <input onChange={event => setIncorrectChoice(event.target.value)} type={"text"} placeholder={"Incorrect Choice"}/>
-                    <button onClick={() => onAddTool()}>Save</button>
+                    {/*<input type={"checkbox"} onChange={event => setfavourite(event.target.value)} type={"text"} placeholder={"Incorrect Choice"}/>*/}
+                    <button onClick={() => updateTool()}>Save</button>
                 </form>
             </div>
         </>

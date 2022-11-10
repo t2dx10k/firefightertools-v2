@@ -13,7 +13,6 @@ export default function DetailPage(props: ToolPProps) {
 
     const navigate = useNavigate()
 
-
     useEffect(() => {
         if (id) {
             props.loadDetailedTool(id)
@@ -26,7 +25,7 @@ export default function DetailPage(props: ToolPProps) {
                 <h1>{props.tool?.name}</h1>
 
                 <img/>
-                {props.tool?._id ? <button onClick={() => navigate(`/edit/` + props.tool?._id)}>Edit</button> : <p>No valid Tool was given</p>}
+                {props.tool?._id ? <button onClick={() => navigate(`/edit/`)}>Edit</button> : <p>No valid Tool was given</p>}
             </>
     )
 }

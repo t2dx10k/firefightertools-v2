@@ -43,6 +43,5 @@ export default function useTool() {
             .then(tool => setTool(tool))
             .catch((error) => console.error(error))
     }
-
-    return {tool, tools, detailTool: tool, addNewTool, loadDetailedTool}
+    return {tool, tools, addNewTool, loadDetailedTool, updateTool}
 }

@@ -10,8 +10,9 @@ import EditPage from "./pages/EditPage";
 
 function App() {
 
-    const {tool, tools, addNewTool, loadDetailedTool} = useTool();
+    const {tool, tools, loadDetailedTool, addNewTool, updateTool } = useTool();
 
+    // @ts-ignore
     return (
         <div className="App">
           <HashRouter>
@@ -20,7 +21,7 @@ function App() {
                   <Route path={"/tools/"} element={<ToolPage tools={tools}/>}/>
                   <Route path={"/add/"} element={<AddPage addTool={addNewTool}/>}/>
                   <Route path={"/details/:id"} element={<DetailPage tool={tool} loadDetailedTool={loadDetailedTool}/>}/>
-                  <Route path={"/edit/"} element={<EditPage tool={tool} loadDetailedTool={loadDetailedTool}/>}/>
+                  <Route path={"/edit/"} element={<EditPage tool={tool} updateTool={updateTool} loadDetailedTool={loadDetailedTool}/>}/>
                   <Route path={"/quiz/"}/>
               </Routes>
           </HashRouter>

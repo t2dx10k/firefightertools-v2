@@ -33,7 +33,7 @@ public class ToolController {
     }
 
     @PutMapping
-    public Tool updateATool(@RequestBody Tool updateTool){
-        return service.updateTool(updateTool);
+    public Tool updateATool(@RequestBody Tool putTool){
+        return service.updateTool(putTool);
     }
 }

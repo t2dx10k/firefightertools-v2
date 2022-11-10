@@ -23,19 +23,7 @@ export default function AddPage(props: APProps) {
     const [incorrectChoice, setIncorrectChoice] = useState("")
     const [favourite, setfavourite] = useState(false)
 
-    const onAddTool = () => {
-        setName("")
-        setImage("")
-        setDescription("")
-        setVideo("")
-        setLink("")
-        setQuizQuestion("")
-        setChoiceA("")
-        setChoiceB("")
-        setChoiceC("")
-        setCorrectChoice("")
-        setIncorrectChoice("")
-
+    const addTool = () => {
 
         const newTool = {
             name,
@@ -59,8 +47,8 @@ export default function AddPage(props: APProps) {
     return (
         <>
             <div>
-                <button onClick={() => navigate(`/tools/`)}>FireFighterTools</button>
                 <form>
+                    <button onClick={() => navigate(`/tools/`)}>FireFighterTools</button>
                     <input onChange={event => setName(event.target.value)} value={name} type={"text"} placeholder={"Name"}/>
                     <input onChange={event => setImage(event.target.value)} type={"text"} placeholder={"Image"}/>
                     <input onChange={event => setDescription(event.target.value)} type={"text"} placeholder={"Description"}/>
@@ -72,8 +60,9 @@ export default function AddPage(props: APProps) {
                     <input onChange={event => setChoiceC(event.target.value)} type={"text"} placeholder={"Choice C"}/>
                     <input onChange={event => setCorrectChoice(event.target.value)} type={"text"} placeholder={"Correct Choice"}/>
                     <input onChange={event => setIncorrectChoice(event.target.value)} type={"text"} placeholder={"Incorrect Choice"}/>
+                    {/*<input type={"checkbox"} onChange={event => setfavourite(event.target.value)} type={"text"} placeholder={"Incorrect Choice"}/>*/}
+                    <button onClick={() => addTool()}>Save</button>
                 </form>
-                <button onClick={() => onAddTool()}>Save</button>
             </div>
         </>
     )

@@ -27,4 +27,15 @@ public class ToolController {
     public Tool postNewTool(@RequestBody Tool postTool){
         return service.addTool(postTool);
     }
+
+    @PutMapping
+    public Tool updateATool(@RequestBody Tool tool){
+        return service.updateTool(tool);
+    }
+
+    @GetMapping("{id}")
+    public Tool getSingleTool(@PathVariable String id){
+        return service.getToolByID(id);
+    }
+
 }

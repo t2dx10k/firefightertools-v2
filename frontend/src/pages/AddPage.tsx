@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {NewTool} from "../model/NewTool";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 type APProps = {
     addTool: (tool: NewTool) => void
@@ -59,7 +59,9 @@ export default function AddPage(props: APProps) {
     return (
         <>
             <div>
-                <h1>Test AddPage</h1>
+                <Link to={"/tools/"}>
+                    <button>FireFighterTools</button>
+                </Link>
                 <form>
                     <input onChange={event => setName(event.target.value)} value={name} type={"text"} placeholder={"Name"}/>
                     <input onChange={event => setImage(event.target.value)} type={"text"} placeholder={"Image"}/>

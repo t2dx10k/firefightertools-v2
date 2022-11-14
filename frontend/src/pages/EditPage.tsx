@@ -23,11 +23,24 @@ export default function EditPage() {
 
     return (
         <div>
+            <form>
             <Link to={"/details/" + tool._id}>
                 <button>FireFighterTools</button>
             </Link>
-            <h1>Test</h1>
-            <h1>{tool._id}</h1>
+            <h1>{tool.name}</h1>
+            <h1>{tool.image}</h1>
+            <h1>{tool.description}</h1>
+            <h1>{tool.video}</h1>
+            <h1>{tool.link}</h1>
+            <h1>{tool.quizQuestion}</h1>
+            <h1>{tool.choiceA}</h1>
+            <h1>{tool.choiceB}</h1>
+            <h1>{tool.choiceC}</h1>
+            <h1>{tool.correctChoice}</h1>
+            <h1>{tool.incorrectChoice}</h1>
+            <h1>{tool.favourite}</h1>
+            {/*<button onSubmit={}></button>    */}
+            </form>
         </div>
     )
 }

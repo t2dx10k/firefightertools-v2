@@ -27,8 +27,16 @@ export default function DetailPage() {
                 <button>FireFighterTools</button>
             </Link>
             <h1>{tool.name}</h1>
-            <h1>{tool._id}</h1>
-            <h1>{tool._id}</h1>
+            <h1>{tool.image}</h1>
+            <h1>{tool.description}</h1>
+            <h1>{tool.video}</h1>
+            <h1>{tool.link}</h1>
+            <h1>{tool.quizQuestion}</h1>
+            <h1>{tool.choiceA}</h1>
+            <h1>{tool.choiceB}</h1>
+            <h1>{tool.choiceC}</h1>
+            <h1>{tool.correctChoice}</h1>
+            <h1>{tool.incorrectChoice}</h1>
             <Link to={"/edit/" + tool._id}>
                 <button>Edit</button>
             </Link>
